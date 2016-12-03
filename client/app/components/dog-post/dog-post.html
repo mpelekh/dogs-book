@@ -1,10 +1,26 @@
 <div>
-  <h1>{{ $ctrl.name }}</h1>
-</div>
-
-<div>
+  Статус:
   <label ng-repeat="status in $ctrl.statuses">
-    <input type="radio" ng-model="$ctrl.status" value="red">
-    {{$ctrl.status.name}}
+    <input type="radio" ng-model="$ctrl.dog.status" ng-value="status.id">
+    {{status.name}}
   </label>
+
+  <br>
+
+  Вік:
+  <input type="text" ng-model="$ctrl.dog.age">
+
+  <br>
+
+  Gender:
+  <label ng-repeat="gender in $ctrl.genders">
+    <input type="radio" ng-model="$ctrl.dog.gender" ng-value="gender.id">
+    {{gender.name}}
+  </label>
+
+  <br>
+
+  Additional Info:
+  <textarea ng-model="$ctrl.dog.addInfo">
+
 </div>

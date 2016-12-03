@@ -7,6 +7,10 @@ class DogPostController {
     self._DogPostNetworkService = DogPostNetworkService;
 
     this.name = 'dogPost';
+
+    this.dog = {
+      status: null
+    };
   }
 
   $onInit() {
