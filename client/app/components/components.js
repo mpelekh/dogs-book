@@ -8,14 +8,12 @@ import DogPost from './dog-post/dog-post';
 import UserPost from './user-post/user-post';
 
 let componentModule = angular.module('app.components', [
-  Home,
-  About,
   Dogs,
   Users,
   DogProfile,
   DogPost,
   UserPost
-  ])
+])
   .name;
 
 export default componentModule;

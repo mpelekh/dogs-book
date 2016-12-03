@@ -13,7 +13,7 @@ let dogsModule = angular.module('dogs', [
 
     $stateProvider
       .state('dogs', {
-        url: '/dogs',
+        url: '/',
         component: 'dogs'
       });
   })
