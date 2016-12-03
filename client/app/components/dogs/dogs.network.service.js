@@ -1,0 +1,5 @@
+class DogsNetworkService {
+  constructor($http) {
+
+  }
+}
