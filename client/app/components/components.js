@@ -5,6 +5,7 @@ import Dogs from './dogs/dogs';
 import DogProfile from './dog-profile/dog-profile';
 import Users from './users/users';
 import DogPost from './dog-post/dog-post';
+import UserPost from './user-post/user-post';
 
 let componentModule = angular.module('app.components', [
   Home,
@@ -12,7 +13,8 @@ let componentModule = angular.module('app.components', [
   Dogs,
   Users,
   DogProfile,
-  DogPost
+  DogPost,
+  UserPost
   ])
   .name;
 
