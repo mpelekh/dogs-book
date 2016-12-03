@@ -16,5 +16,7 @@ angular.module('app', [
     // #how-to-configure-your-server-to-work-with-html5mode
     $locationProvider.html5Mode(true).hashPrefix('!');
   })
+  //TODO: write correct API address.
+  .constant('API_URL', 'https://jsonplaceholder.typicode.com')
 
   .component('app', AppComponent);
