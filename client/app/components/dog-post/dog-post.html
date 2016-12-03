@@ -1,3 +1,10 @@
 <div>
   <h1>{{ $ctrl.name }}</h1>
 </div>
+
+<div>
+  <label ng-repeat="status in $ctrl.statuses">
+    <input type="radio" ng-model="$ctrl.status" value="red">
+    {{$ctrl.status.name}}
+  </label>
+</div>
