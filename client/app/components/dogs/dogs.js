@@ -1,6 +1,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import dogsComponent from './dogs.component';
+import dogsNetworkService from './dogs.network.service'
 
 let dogsModule = angular.module('dogs', [
   uiRouter
@@ -17,7 +18,7 @@ let dogsModule = angular.module('dogs', [
       });
   })
 
-
+  .service('DogsNetworkService', dogsNetworkService)
   .component('dogs', dogsComponent)
 
   .name;
