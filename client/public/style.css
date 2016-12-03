@@ -1,0 +1,117 @@
+
+
+#nav-sidebar {
+  position: fixed;
+}
+
+.position-override {
+  margin-top: 55px;
+}
+
+.fly-left {
+  float: left;
+}
+
+.center {
+
+}
+
+.column-inside-main {
+  width: auto;
+  padding: 10px;
+}
+
+.button-custom {
+  background: url("images/Button.png") no-repeat center top;
+  background-size: 100%;
+  cursor: pointer;
+  border: 0;
+  width: 100px;
+  height: 43px;
+}
+
+.main-panel {
+  width: 83.33333332%;
+}
+
+.global-post {
+  position: inherit;
+}
+
+.post {
+  margin: 10px;
+  height: 230px;
+}
+
+.left-post {
+  float: left;
+  margin-left: 50px;
+}
+
+.right-post {
+  float: left;
+  height: 230px;
+  max-width: 300px;
+  width: auto;
+  margin: 10px;
+}
+
+.fly-right {
+  float: right;
+}
+
+.padding-distance {
+  padding: 0 50px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.check-element-child {
+  position: inherit;
+  padding-top: 0px;
+  padding-left: 10px;
+}
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 450px}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  padding-top: 20px;
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {height:auto;}
+}
