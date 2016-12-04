@@ -18,9 +18,13 @@ class DogPostNetworkService {
   postDog(dogModel) {
     const self = this;
 
-    return self._$http.post(dogModel).then(() => {
-      self._$state.go('dogs');
-    });
+    return self._$http.put(self.DOGS_URL, dogModel, {headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}})
+      .then(data => {
+        self._$state.go('dogs');
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   getSpecificModelData(modelPath) {
