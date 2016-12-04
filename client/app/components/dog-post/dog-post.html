@@ -11,7 +11,7 @@
 					<label ng-repeat="status in $ctrl.statuses" class="radio primary">
             <input type="radio" data-toggle="radio" value={{status.id}} ng-model="$ctrl.dog.status"
                    data-radiocheck-toggle="radio" name="statuses">
-            {{status.name}}
+            {{status.status_title}}
           </label>
 				</div>
 
@@ -28,7 +28,7 @@
         <div class="form-group">
           <h2>Стать:</h2>
           <select class="form-control" id="gender">
-            <option ng-repeat="gender in $ctrl.genders" value="{{gender.id}}">{{gender.name}}</option>
+            <option ng-repeat="gender in $ctrl.genders" value="{{gender.id}}">{{gender.gender_title}}</option>
           </select>
         </div>
 
@@ -38,7 +38,7 @@
 					<label ng-repeat="size in $ctrl.sizes" class="radio primary">
             <input type="radio" data-toggle="radio" value="{{size.id}}" ng-model="$ctrl.dog.size"
                    data-radiocheck-toggle="radio" name="sizes">
-            {{size.name}}
+            {{size.size_title}}
           </label>
 				</div>
 
@@ -49,7 +49,7 @@
 
 				<h2>Район:</h2>
 				<select ng-model="$ctrl.dog.region" data-toggle="select" class="select select-inverse mrs mbm region-select">
-          <option ng-repeat="region in $ctrl.regions" value="{{region.id}}">{{region.name}}</option>
+          <option ng-repeat="region in $ctrl.regions" value="{{region.id}}">{{region.region_title}}</option>
         </select>
 
 			</form>
