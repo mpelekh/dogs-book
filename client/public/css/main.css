@@ -1,0 +1,153 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+nav.navbar {
+    width: 100%;
+    background-color: #3498DB;
+    border-radius: 0;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    margin: 0;
+  }
+.left-bar h2{
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+.left-bar h1{
+  text-align: center;
+}
+.left-bar {
+  font-size: 15px;
+  padding-top:90px;
+
+  min-height: 100%;
+  padding-bottom: 150px;
+}
+.radio.primary {
+  font-size: 1em;
+  line-height: 15px;
+}
+.select2-drop .select2-result-selectable .select2-result-label{
+color:white;
+}
+.select2-drop{
+  background-color: #3498DB   ;
+}
+#s2id_autogen1 {
+  background-color:#3498DB !important;
+}
+.region-select ul li, .region-select{
+    background-color:#3498DB !important;
+}
+.select2-drop .select2-highlighted>.select2-result-label,
+.select2-results-dept-0 .select2-result .select2-result-selectable .select2-highlighted,
+.select2-results-dept-0 .select2-result .select2-result-selectable .select2-highlighted:hover  {
+  background-color:#34495e !important;
+  color: white  !important;
+}
+.main {
+  position: absolute;
+  top:0;
+  background-color: #ECF0F1;
+  z-index: 1;
+  width: 100%;
+}
+
+.dog .photo {
+  overflow: hidden;
+}
+.main-contenter {
+  padding: 0;
+  padding-top: 76px;
+  background-color: white;
+  box-sizing: border-box;
+}
+.dog .photo {
+  width: 250px;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+}
+.navbar-brand {
+  width: 250px;
+  text-align: left;
+  padding-left: 0;
+}
+.dog .info  {
+  display: table-cell;
+}
+.dog h2{
+  padding-left: 10px;
+     font-size: 1.5em;
+     margin-top: 20px;
+     margin-bottom: 15px;
+
+}
+.dog {
+  background-color: #eff0f2;
+border-radius: 10px;
+margin: 15px;
+display: table;
+box-sizing: border-box;
+overflow: hidden;
+}
+.info p {
+      padding-top: 10px;
+}
+.info-group {
+float: left;
+margin-right: 30px
+}
+.info-group span{
+display: block;
+margin: 5px 0;
+font-size: 15px;
+}
+.info-group img{
+  width: 16px;
+  margin:0 5px;
+  margin-left: 10px
+}
+.info-group .btn {
+  margin-top: 25px;
+  margin-left: 10px;
+}
+.row.darkgray {
+  width: 100%;
+  height: 50px;
+  background-color: #2980B9;
+  padding: 0;
+  margin: 0;
+}
+.add-dog {
+  margin:5px;
+  margin-left: 15px;
+}
+.navbar .container-fluid {
+  padding: 0;
+}
+.nav {
+  padding: 0;
+}
+.navbar-embossed.navbar-inverse .navbar-nav .active>a, .navbar-embossed.navbar-inverse .navbar-nav .open>a, ul.nav.navbar-nav > .active a{
+  border-bottom: 0;
+  box-shadow: none;
+  color: white;
+}
+.footer {
+  width: 100%;
+  padding:0;
+  height: 150px;
+  background-color: #95A5A6;
+  padding: 0 15px;
+  box-sizing: content-box;
+}
+@media (max-width:991px) {
+  .left-bar .pull-right {
+    float:left !important;
+  }
+}
