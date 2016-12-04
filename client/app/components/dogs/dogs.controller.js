@@ -48,7 +48,6 @@ class DogsController {
   }
 
   filterDogs(filter) {
-    debugger;
     const self = this;
 
     const originalFilter = Object.assign({}, filter);
