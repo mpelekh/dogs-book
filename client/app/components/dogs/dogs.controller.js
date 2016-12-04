@@ -77,66 +77,6 @@ class DogsController {
       }
     )
   }
-
-  getMockData() {
-    const statuses = [
-      {
-        id: 1,
-        name: 'terminovo'
-      },
-      {
-        id: 2,
-        name: 'shykaje peretrymku'
-      },
-      {
-        id: 3,
-        name: 'shukaje dim'
-      }
-    ];
-
-    const genders = [
-      {
-        id: 1,
-        name: 'male'
-      },
-      {
-        id: 2,
-        name: 'female'
-      }
-    ];
-
-    const sizes = [
-      {
-        id: 1,
-        name: 'small'
-      },
-      {
-        id: 2,
-        name: 'medium'
-      },
-      {
-        id: 3,
-        name: 'big'
-      }
-    ];
-    const regions = [
-      {
-        id: 1,
-        name: 'syhivskyj'
-      },
-      {
-        id: 2,
-        name: 'shevchenkivskyj'
-      }
-    ];
-
-    return {
-      statuses,
-      genders,
-      sizes,
-      regions
-    };
-  }
 }
 
 export default DogsController;
