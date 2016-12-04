@@ -1,10 +1,11 @@
 class DogsController {
-  constructor(DogsNetworkService, $q) {
+  constructor(DogsNetworkService, $q, $state) {
     'ngInject';
 
     const self = this;
 
     self._$q = $q;
+    self._$state = $state;
 
     self._DogsNetworkService = DogsNetworkService;
 
@@ -129,6 +130,12 @@ class DogsController {
     }
 
     return result;
+  }
+
+  redirectToDetails(dogId){
+    const self = this;
+
+    self._$state.go('dog-profile', {dogId});
   }
 }
 

@@ -72,7 +72,7 @@
           <span><img src="/public/img/clocks.svg" alt=""/>{{$ctrl.getItemById(dog.status, 'statuses').status_title}}</span>
           <span><img src="/public/img/male3-512.png" alt=""/>{{$ctrl.getItemById(dog.gender, 'genders').gender_title}}</span>
           <span><img src="/public/img/loop.svg" alt=""/>{{dog.age}} роки(-ів)</span>
-          <span><button type="button" class="btn btn-success">Детальніше</button></span>
+          <span><a type="button" class="btn btn-success" ng-click="$ctrl.redirectToDetails(dog.id)">Детальніше</a></span>
         </div>
         <p>
           {{dog.aditional_info}}

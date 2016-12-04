@@ -3,7 +3,6 @@ body, html {
   padding: 0;
   width: 100%;
   height: 100%;
-  min-width: 1000px;
 }
 nav.navbar {
     width: 100%;
@@ -151,101 +150,4 @@ font-size: 15px;
   .left-bar .pull-right {
     float:left !important;
   }
-}
-.clearfix {
-  width: 100%;
-  clear: both;
-}
-.fix-contenter {
-  padding-top: 96px;
-}
-.mainContainer{
-width: 1000px;
-margin: 0 auto;
-}
-
-.VolunteerContainer{
-  width: 100%;
-  margin-bottom: 30px;
-  height: 100%;
-  vertical-align: middle;
-
-}
-
-#VolunteerPhoto .img-photo {
-  width: 400;
-  height: 400px;
-
-    background-size: cover;
-    background-position: center;
-}
-#VolunteerPhoto{
-  width:440px;
-  padding: 20px;
-  padding-left: 0;
-  padding-bottom: 0;
-  display: inline-block;
-
-}
-.scheduler-border.add-info {
-  height: 375px;
-  box-sizing: border-box;
-  margin-bottom: 3px !important;
-}
-#VolunteerName{
-  margin-top: 0;
-  font-size: 25px;
-  padding-top: 20px;
-}
-
-#VolunteerFree{
-  margin-bottom: 10px;
-  margin-left: 20px;
-}
-
-fieldset.scheduler-border {
-    border: 1px groove #ddd !important;
-    padding: 0 1.4em 1.4em 1.4em !important;
-    margin: 0 0 1.5em 0 !important;
-    -webkit-box-shadow:  0px 0px 0px 0px #000;
-            box-shadow:  0px 0px 0px 0px #000;
-}
-
-    legend.scheduler-border {
-        font-size: 1.2em !important;
-        text-align: left !important;
-        width:auto;
-        padding:0 10px;
-        border-bottom:none;
-    }
-
-.VolunteerInfo{
-  display: inline-block;
-  width: 550px;
-  vertical-align: top;
-}
-
-.dogContainer{
-}
-
-.dogImage{
-  width: 23%;
-  margin-right: 2%;
-  margin-bottom: 15px;
-}
-
-.dogImage:nth-child(4n){
-  margin-right: 0;
-}
-
-.fix-contenter  .photo{
-  width: 400px;
-  float: left;
-  height: 300px;
-  background-position: center;
-  background-size: cover;
-}
-.fix-contenter {
-  width: 1000px;
-  margin: 0 auto;
 }
