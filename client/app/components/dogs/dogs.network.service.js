@@ -3,8 +3,12 @@ class DogsNetworkService {
     'ngInject';
 
     const self = this;
-    //TODO: rename to 'dogs'
-    self.DOGS_URL = `${API_URL}/users`;
+
+    self.DOGS_URL = `${API_URL}/dogs`;
+    self.REGIONS_URL = `${API_URL}/regions`;
+    self.GENDERS_URL = `${API_URL}/genders`;
+    self.STATUSES_URL = `${API_URL}/dogs/statuses`;
+    self.SIZES_URL = `${API_URL}/dogs/sizes`;
 
     self._$http = $http;
   }
@@ -14,6 +18,13 @@ class DogsNetworkService {
 
     return self._$http.get(self.DOGS_URL);
   }
+
+  getSpecificModelData(modelPath) {
+    const self = this;
+
+    return self._$http.get(modelPath);
+  }
+
 }
 
 export default DogsNetworkService;
