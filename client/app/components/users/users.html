@@ -1,4 +1,81 @@
-<div>
-  <h1>{{ $ctrl.name }}</h1>
-  <p ng-repeat="user in $ctrl.users">{{user.name}}</p>
+<div class="row">
+  <div class="col-md-3 left-bar">
+    <div class="pull-right">
+
+      <form role="form">
+        <h2>Cтатус собаки:</h2>
+        <div class="form-group">
+          <label ng-repeat="status in $ctrl.statuses"
+                 class="radio primary">
+            <input type="radio" data-toggle="radio" value={{status.id}} ng-model="$ctrl.filter.status"
+                   data-radiocheck-toggle="radio" name="statuses">
+            {{status.name}}
+          </label>
+
+          <label class="radio primary">
+            <input type="radio" data-toggle="radio" value="-1" ng-model="$ctrl.filter.status"
+                   data-radiocheck-toggle="radio" name="statuses">
+            Не знаю
+          </label>
+        </div>
+
+        <h2>Район:</h2>
+
+        <select ng-model="$ctrl.filter.region"
+                data-toggle="select" class="select select-inverse mrs mbm region-select">
+          <option ng-repeat="region in $ctrl.regions" value="{{region.id}}">{{region.name}}</option>
+          <option value="-1">Не знаю</option>
+        </select>
+
+        <h2>Розмір:</h2>
+
+        <div class="form-group sizes">
+          <label ng-repeat="size in $ctrl.sizes"
+                 class="radio primary">
+            <input type="radio" data-toggle="radio" value="{{size.id}}" ng-model="$ctrl.filter.size"
+                   data-radiocheck-toggle="radio" name="sizes">
+            {{size.name}}
+          </label>
+
+          <label class="radio primary">
+            <input type="radio" data-toggle="radio" value="-1" ng-model="$ctrl.filter.size"
+                   data-radiocheck-toggle="radio" name="sizes">
+            Не знаю
+          </label>
+        </div>
+
+        <h2>Стать:</h2>
+        <select ng-model="$ctrl.filter.gender"
+                data-toggle="select" class="select select-inverse mrs mbm region-select">
+          <option ng-repeat="gender in $ctrl.genders" value="{{gender.id}}">{{gender.name}}</option>
+          <option value="-1"> Не знаю</option>
+        </select>
+
+        <br/>
+        <button ng-click="$ctrl.filterDogs($ctrl.filter)" type="button" class="btn btn-success">Застосувати</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-9 main-contenter">
+    <div class="row darkgray">
+      <a type="button" class="btn btn-danger add-dog" ui-sref="dog-post">Додати собаку</a>
+    </div>
+    <div class="row dog" ng-repeat="volounteer in $ctrl.users">
+      <div class="photo" style="background-image:url(/public/img/dog.jpg)">
+      </div>
+      <div class="info">
+        <h2 class = "pull-left">{{ volounteer.first_name + ' ' + volounteer.second_name}}</h2>
+
+        <div class="info-group" style="margin-top:15px">
+          <span><img src="/public/img/clocks.svg" alt=""/> {{$ctrl.statuses[volounteer.status].status_title}} </span>
+        </div>
+
+        <div style="clear:both;">
+        </div>
+        <p style="padding: 0 15px">
+          {{ volounteer.aditional_info }}
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
