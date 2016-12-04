@@ -43,16 +43,21 @@
 				</div>
 
         <div class="form-group">
-          <h2>Додаткова інформація</h2>
-          <textarea type="text" class="form-control" id="add-info" ng-model="$ctrl.dog.additionalInfo">
+          <h2>Район:</h2>
+          <select class="form-control">
+            <option ng-repeat="region in $ctrl.regions" value="{{region.id}}">{{region.region_title}}</option>
+          </select>
         </div>
 
-				<h2>Район:</h2>
-				<select ng-model="$ctrl.dog.region" data-toggle="select" class="select select-inverse mrs mbm region-select">
-          <option ng-repeat="region in $ctrl.regions" value="{{region.id}}">{{region.region_title}}</option>
-        </select>
+        <div class="form-group">
+          <h2>Додаткова інформація</h2>
+          <textarea type="text" class="form-control" id="add-info" ng-model="$ctrl.dog.additionalInfo" />
+        </div>
 
 			</form>
+
+      <br/>
+      <span class="btn btn-success">Додати</span>
 
 			<!--<div drop-zone class="dropzone dropzone-image" url="/upload" files="$ctrl.files" style="margin-bottom: 10px">
 			</div>-->
