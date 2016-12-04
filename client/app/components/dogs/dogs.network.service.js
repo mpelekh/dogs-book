@@ -27,7 +27,7 @@ class DogsNetworkService {
 
   getFilteredDogs(filter) {
     const self = this;
-
+    console.log("LOL",filter)
     return self._$http.post(self.DOGS_URL, filter);
   }
 

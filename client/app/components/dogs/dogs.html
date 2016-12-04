@@ -62,7 +62,8 @@
       <a type="button" class="btn btn-danger add-dog" ui-sref="dog-post">Додати собаку</a>
     </div>
     
-    <div class="row dog" ng-repeat="dog in $ctrl.dogs">
+    <div class="row dog" ng-repeat="dog in $ctrl.dogs" style="width:100%;margin:0;padding:15px;background-color:transparent;box-sizing: border-box;">
+      <div style = "width: 100%; background-color:#EFF0F2; height:250px";>
       <div class="photo" style="background-image:url(/public/img/dog.jpg)">
       </div>
       <div class="info">
@@ -74,9 +75,10 @@
           <span><img src="/public/img/loop.svg" alt=""/>{{dog.age}} роки(-ів)</span>
           <span><a type="button" class="btn btn-success" ng-click="$ctrl.redirectToDetails(dog.id)">Детальніше</a></span>
         </div>
-        <p>
+        <p style="display:inline-block;">
           {{dog.aditional_info}}
         </p>
+      </div>
       </div>
     </div>
 
