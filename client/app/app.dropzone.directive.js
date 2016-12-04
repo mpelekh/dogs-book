@@ -4,7 +4,6 @@ function dropZoneDirective() {
     'ngInject';
 
     return function (scope, element, attrs) {
-        debugger;
         element.dropzone({
             url                 : "/upload",
             maxFilesize         : 1000,

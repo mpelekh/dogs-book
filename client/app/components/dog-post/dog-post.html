@@ -1,85 +1,62 @@
-<!--<div>
-  Статус:
-  <label ng-repeat="status in $ctrl.statuses">
-    <input type="radio" ng-model="$ctrl.dog.status" ng-value="status.id">
-    {{status.name}}
-  </label>
-
-  <br>
-
-  Вік:
-  <input type="text" ng-model="$ctrl.dog.age">
-
-  <br>
-
-  Gender:
-  <label ng-repeat="gender in $ctrl.genders">
-    <input type="radio" ng-model="$ctrl.dog.gender" ng-value="gender.id">
-    {{gender.name}}
-  </label>
-
-  <br>
-
-  Additional Info:
-  <textarea ng-model="$ctrl.dog.addInfo">
-
-</div>-->
-
 <div class="row">
-  <div class="col-md-3 left-bar">
-    <div class="pull-right">
+  <div class="col-md-5">
+  </div>  
 
-      <form role="form">
-        <h2>Cтатус собаки:</h2>
+	<div class="col-md-2 left-bar">
+		<div>
+			<form role="form">
+				<h2>Cтатус собаки:</h2>
 
-        <div class="form-group">
-          <label ng-repeat="status in $ctrl.statuses"
-                 class="radio primary">
+				<div class="form-group">
+					<label ng-repeat="status in $ctrl.statuses" class="radio primary">
             <input type="radio" data-toggle="radio" value={{status.id}} ng-model="$ctrl.dog.status"
                    data-radiocheck-toggle="radio" name="statuses">
             {{status.name}}
           </label>
+				</div>
+
+        <div class="form-group">
+          <h2 for="age">Вік</h2>
+          <input type="number" class="form-control" id="age" g-model="$ctrl.dog.age">
         </div>
 
-        <h2>Вік</h2>
-        <input type="number" ng-model="$ctrl.dog.age">
-
-
-        <h2>Стать:</h2>
-        <select ng-model="$ctrl.dog.gender"
-                data-toggle="select" class="select select-inverse mrs mbm region-select">
+				<!--<h2>Стать:</h2>
+				<select ng-model="$ctrl.dog.gender" data-toggle="select" class="select select-inverse mrs mbm region-select">
           <option ng-repeat="gender in $ctrl.genders" value="{{gender.id}}">{{gender.name}}</option>
-        </select>
+        </select>-->
 
-        <h2>Розмір:</h2>
+        <div class="form-group">
+          <h2>Стать:</h2>
+          <select class="form-control" id="gender">
+            <option ng-repeat="gender in $ctrl.genders" value="{{gender.id}}">{{gender.name}}</option>
+          </select>
+        </div>
 
-        <div class="form-group sizes">
-          <label ng-repeat="size in $ctrl.sizes"
-                 class="radio primary">
+				<h2>Розмір:</h2>
+
+				<div class="form-group sizes">
+					<label ng-repeat="size in $ctrl.sizes" class="radio primary">
             <input type="radio" data-toggle="radio" value="{{size.id}}" ng-model="$ctrl.dog.size"
                    data-radiocheck-toggle="radio" name="sizes">
             {{size.name}}
           </label>
+				</div>
+
+        <div class="form-group">
+          <h2>Додаткова інформація</h2>
+          <textarea type="text" class="form-control" id="add-info" ng-model="$ctrl.dog.additionalInfo">
         </div>
 
-        <h2>Додаткова інформація</h2>
-        <textarea ng-model="$ctrl.dog.additionalInfo"/>
-
-        <h2>Район:</h2>
-        <select ng-model="$ctrl.dog.region"
-                data-toggle="select" class="select select-inverse mrs mbm region-select">
+				<h2>Район:</h2>
+				<select ng-model="$ctrl.dog.region" data-toggle="select" class="select select-inverse mrs mbm region-select">
           <option ng-repeat="region in $ctrl.regions" value="{{region.id}}">{{region.name}}</option>
         </select>
 
-      </form>
+			</form>
 
-      <div drop-zone
-           class="dropzone dropzone-image"
-           url="/upload"
-           files="$ctrl.instance.files"
-           style="margin-bottom: 10px">
-      </div>
+			<!--<div drop-zone class="dropzone dropzone-image" url="/upload" files="$ctrl.instance.files" style="margin-bottom: 10px">
+			</div>-->
 
-    </div>
-  </div>
+		</div>
+	</div>
 </div>
