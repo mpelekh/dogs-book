@@ -7,18 +7,19 @@ import DropZoneDirective from './app.dropzone.directive';
 // import 'normalize.css';
 
 angular.module('app', [
-    uiRouter,
-    Common,
-    Components
-  ])
+  uiRouter,
+  Common,
+  Components
+])
   .config(($locationProvider) => {
     "ngInject";
     // @see: https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions
     // #how-to-configure-your-server-to-work-with-html5mode
     $locationProvider.html5Mode(true).hashPrefix('!');
+
   })
   //TODO: write correct API address.
-  .constant('API_URL', 'https://jsonplaceholder.typicode.com')
+  .constant('API_URL', 'http://urswego.pythonanywhere.com/api')
   .directive('dropZone', DropZoneDirective)
 
   .component('app', AppComponent);

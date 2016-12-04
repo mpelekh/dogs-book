@@ -8,7 +8,7 @@ class DogsNetworkService {
     self.REGIONS_URL = `${API_URL}/regions`;
     self.GENDERS_URL = `${API_URL}/genders`;
     self.STATUSES_URL = `${API_URL}/dogs/statuses`;
-    self.SIZES_URL = `${API_URL}/dogs/sizes`;
+    self.SIZES_URL = `${API_URL}/sizes`;
 
     self._$http = $http;
   }
