@@ -1,8 +1,3 @@
-<!--<div>
-  <h1>{{ $ctrl.name }}</h1>
-  <p ng-repeat="dog in $ctrl.dogs">{{dog.name}}</p>
-</div>-->
-
 <div class="row">
   <div class="col-md-3 left-bar">
     <div class="pull-right">
@@ -69,6 +64,66 @@
     <div class="row darkgray">
       <a type="button" class="btn btn-danger add-dog" ui-sref="dog-post">Додати собаку</a>
     </div>
+    
+    
+    <div class="row dog" ng-repeat="dog in $ctrl.dogs">
+      <div class="photo" style="background-image:url(/public/img/dog.jpg)">
+      </div>
+      <div class="info">
+        <h2>{{dog.aditional_info}}</h2>
+
+        <div class="info-group">
+          <span><img src="/public/img/clocks.svg" alt=""/>{{$ctrl.getItemById(dog.status, 'statuses').status_title}}</span>
+          <span><img src="/public/img/male3-512.png" alt=""/>{{$ctrl.getItemById(dog.gender, 'genders').gender_title}}</span>
+          <span><img src="/public/img/loop.svg" alt=""/>{{dog.age}} роки(-ів)</span>
+          <span><button type="button" class="btn btn-success">Детальніше</button></span>
+        </div>
+        <p>
+          {{dog.aditional_info}}
+        </p>
+      </div>
+    </div>
+
+<!--
+
+    <div class="row dog">
+      <div class="photo" style="background-image:url(/public/img/dog.jpg)">
+      </div>
+      <div class="info">
+        <h2>Марсік - велика біла собака</h2>
+
+        <div class="info-group">
+          <span><img src="/public/img/clocks.svg" alt=""/> Терміново</span>
+          <span><img src="/public/img/male3-512.png" alt=""/> Жіноча</span>
+          <span><img src="/public/img/loop.svg" alt=""/> 4 роки</span>
+          <span>  <button type="button" class="btn btn-success">Детальніше</button></span>
+        </div>
+        <p>
+          Короткий опис про собаку в довільній формі, скільки поміститься Короткий опис про собаку в довільній формі,
+          скільки поміститься
+          Короткий опис про собаку в довільній формі, скільки поміститься
+        </p>
+      </div>
+    </div>
+    <div class="row dog">
+      <div class="photo" style="background-image:url(/public/img/dog.jpg)">
+      </div>
+      <div class="info">
+        <h2>Марсік - велика біла собака</h2>
+
+        <div class="info-group">
+          <span><img src="/public/img/clocks.svg" alt=""/> Терміново</span>
+          <span><img src="/public/img/male3-512.png" alt=""/> Жіноча</span>
+          <span><img src="/public/img/loop.svg" alt=""/> 4 роки</span>
+          <span>  <button type="button" class="btn btn-success">Детальніше</button></span>
+        </div>
+        <p>
+          Короткий опис про собаку в довільній формі, скільки поміститься Короткий опис про собаку в довільній формі,
+          скільки поміститься
+          Короткий опис про собаку в довільній формі, скільки поміститься
+        </p>
+      </div>
+    </div>
     <div class="row dog">
       <div class="photo" style="background-image:url(/public/img/dog.jpg)">
       </div>
@@ -125,66 +180,9 @@
           Короткий опис про собаку в довільній формі, скільки поміститься
         </p>
       </div>
-    </div>
-    <div class="row dog">
-      <div class="photo" style="background-image:url(/public/img/dog.jpg)">
-      </div>
-      <div class="info">
-        <h2>Марсік - велика біла собака</h2>
-
-        <div class="info-group">
-          <span><img src="/public/img/clocks.svg" alt=""/> Терміново</span>
-          <span><img src="/public/img/male3-512.png" alt=""/> Жіноча</span>
-          <span><img src="/public/img/loop.svg" alt=""/> 4 роки</span>
-          <span>  <button type="button" class="btn btn-success">Детальніше</button></span>
-        </div>
-        <p>
-          Короткий опис про собаку в довільній формі, скільки поміститься Короткий опис про собаку в довільній формі,
-          скільки поміститься
-          Короткий опис про собаку в довільній формі, скільки поміститься
-        </p>
-      </div>
-    </div>
-    <div class="row dog">
-      <div class="photo" style="background-image:url(/public/img/dog.jpg)">
-      </div>
-      <div class="info">
-        <h2>Марсік - велика біла собака</h2>
-
-        <div class="info-group">
-          <span><img src="/public/img/clocks.svg" alt=""/> Терміново</span>
-          <span><img src="/public/img/male3-512.png" alt=""/> Жіноча</span>
-          <span><img src="/public/img/loop.svg" alt=""/> 4 роки</span>
-          <span>  <button type="button" class="btn btn-success">Детальніше</button></span>
-        </div>
-        <p>
-          Короткий опис про собаку в довільній формі, скільки поміститься Короткий опис про собаку в довільній формі,
-          скільки поміститься
-          Короткий опис про собаку в довільній формі, скільки поміститься
-        </p>
-      </div>
-    </div>
-    <div class="row dog">
-      <div class="photo" style="background-image:url(/public/img/dog.jpg)">
-      </div>
-      <div class="info">
-        <h2>Марсік - велика біла собака</h2>
-
-        <div class="info-group">
-          <span><img src="/public/img/clocks.svg" alt=""/> Терміново</span>
-          <span><img src="/public/img/male3-512.png" alt=""/> Жіноча</span>
-          <span><img src="/public/img/loop.svg" alt=""/> 4 роки</span>
-          <span>  <button type="button" class="btn btn-success">Детальніше</button></span>
-        </div>
-        <p>
-          Короткий опис про собаку в довільній формі, скільки поміститься Короткий опис про собаку в довільній формі,
-          скільки поміститься
-          Короткий опис про собаку в довільній формі, скільки поміститься
-        </p>
-      </div>
-    </div>
+    </div>-->
 
   </div>
 </div>
 
-<div>{{$ctrl.filter | json}}</div>
+<!--<div>{{$ctrl.filter | json}}</div>-->
