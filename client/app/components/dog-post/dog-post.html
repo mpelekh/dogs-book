@@ -1,4 +1,4 @@
-<div>
+<!--<div>
   Статус:
   <label ng-repeat="status in $ctrl.statuses">
     <input type="radio" ng-model="$ctrl.dog.status" ng-value="status.id">
@@ -23,4 +23,56 @@
   Additional Info:
   <textarea ng-model="$ctrl.dog.addInfo">
 
+</div>-->
+
+<div class="row">
+  <div class="col-md-3 left-bar">
+    <div class="pull-right">
+
+      <h2>Cтатус собаки:</h2>
+      <form role="form">
+        <div class="form-group">
+          <label class="radio primary">
+                  <input type="radio" data-toggle="radio" name="optionsRadios" id="optionsRadios1c" value="option1" data-radiocheck-toggle="radio">
+                  Терміново потребує допомоги
+                </label>
+          <label class="radio primary">
+                  <input type="radio" data-toggle="radio" name="optionsRadios" id="optionsRadios2c" value="option2" data-radiocheck-toggle="radio" checked="">
+                  Шукає перетримку
+                </label>
+          <label class="radio primary">
+                  <input type="radio" data-toggle="radio" name="optionsRadios" id="optionsRadios2c" value="option2" data-radiocheck-toggle="radio" checked="">
+                  Шукає господаря
+                </label>
+        </div>
+        <h2>Район:</h2>
+        <select data-toggle="select" class="select select-inverse mrs mbm region-select">
+                  <option value="0">Сихівський</option>
+                  <option value="1">Личаківський</option>
+                  <option value="2">Франківський</option>
+                  <option value="3">My Settings</option>
+                  <option value="4">Logout</option>
+              </select>
+        <h2>Розмір:</h2>
+        <div class="form-group sizes">
+          <label class="radio primary">
+                  <input type="radio" data-toggle="radio" name="optionsRadios1" id="optionsRadios1c" value="option1" data-radiocheck-toggle="radio">
+                    Маленька
+                </label>
+          <label class="radio primary">
+                  <input type="radio" data-toggle="radio" name="optionsRadios1" id="optionsRadios2c" value="option2" data-radiocheck-toggle="radio" checked="">
+                  Середня
+                </label>
+          <label class="radio primary">
+                  <input type="radio" data-toggle="radio" name="optionsRadios1" id="optionsRadios2c" value="option2" data-radiocheck-toggle="radio" checked="">
+                  Велика
+                </label>
+        </div>
+        <select data-toggle="select" class="select select-inverse mrs mbm region-select">
+                  <option value="0">Чоловіча</option>
+                  <option value="1">Жіноча</option>
+              </select>
+      </form>
+    </div>
+  </div>
 </div>
