@@ -1,10 +1,11 @@
 class UsersController {
-  constructor(UsersNetworkService,$q) {
+  constructor(UsersNetworkService,$q,$state) {
     'ngInject';
 
     const self = this;
 
     self._$q = $q;
+    self._$state = $state
 
     self._UsersNetworkService = UsersNetworkService;
 
@@ -55,6 +56,11 @@ class UsersController {
 
     return self._UsersNetworkService.getUsers();
   } 
+  redirectToDetails(userId){
+    const self = this;
+
+    self._$state.go('user-post', {userId});
+  }
 }
 
 export default UsersController;

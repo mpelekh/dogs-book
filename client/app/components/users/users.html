@@ -34,7 +34,7 @@
   </div>
   <div class="col-md-9 main-contenter">
     <div class="row dog" ng-repeat="volounteer in $ctrl.users track by $index">
-      <div class="photo" style="background-image:url(/public/img/volun.jpg)">
+      <div class="photo" style="background-image:url(/public/img/volun.jpg)" ng-click="$ctrl.redirectToDetails(volounteer.id)">
       </div>
       <div class="info">
         <h2 class = "pull-left">{{ volounteer.first_name + ' ' + volounteer.second_name}}</h2>

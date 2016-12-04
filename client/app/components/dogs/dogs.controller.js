@@ -82,7 +82,6 @@ class DogsController {
 
   filterDogs(filter) {
     const self = this;
-
     const originalFilter = Object.assign({}, filter);
     const preparedFilter = {};
 
