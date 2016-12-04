@@ -123,7 +123,7 @@ class DogsController {
     let result = null;
 
     try {
-      result = self[itemName].filter(item => item.id = id)[0];
+      result = self[itemName].filter(item => item.id == id)[0];
     } catch (error) {
       console.log(error);
     }
