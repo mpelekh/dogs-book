@@ -51,11 +51,18 @@ class DogsController {
     debugger;
     const self = this;
 
+    const originalFilter = Object.assign({}, filter);
     const preparedFilter = {};
 
-    Object.keys(filter).forEach(key => {
-      if (filter[key] !== '-1') {
-        preparedFilter[key] = filter[key];
+    Object.keys(originalFilter).forEach(key => {
+      if(typeof originalFilter[key] === 'object') {
+        originalFilter[key] = originalFilter[key].id;
+      }
+    });
+
+    Object.keys(originalFilter).forEach(key => {
+      if (originalFilter[key] !== '-1') {
+        preparedFilter[key] = parseInt(originalFilter[key]);
       }
     });
 
