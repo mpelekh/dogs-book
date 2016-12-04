@@ -3,6 +3,7 @@ import uiRouter from 'angular-ui-router';
 import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
+import DropZoneDirective from './app.dropzone.directive';
 // import 'normalize.css';
 
 angular.module('app', [
@@ -18,5 +19,6 @@ angular.module('app', [
   })
   //TODO: write correct API address.
   .constant('API_URL', 'https://jsonplaceholder.typicode.com')
+  .directive('dropZone', DropZoneDirective)
 
   .component('app', AppComponent);
