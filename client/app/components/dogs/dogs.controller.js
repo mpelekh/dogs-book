@@ -51,11 +51,18 @@ class DogsController {
     debugger;
     const self = this;
 
+    const originalFilter = Object.assign({}, filter);
     const preparedFilter = {};
 
-    Object.keys(filter).forEach(key => {
-      if (filter[key] !== '-1') {
-        preparedFilter[key] = filter[key];
+    Object.keys(originalFilter).forEach(key => {
+      if(typeof originalFilter[key] === 'object') {
+        originalFilter[key] = originalFilter[key].id;
+      }
+    });
+
+    Object.keys(originalFilter).forEach(key => {
+      if (originalFilter[key] !== '-1') {
+        preparedFilter[key] = parseInt(originalFilter[key]);
       }
     });
 
@@ -69,66 +76,6 @@ class DogsController {
         //TODO: Implement
       }
     )
-  }
-
-  getMockData() {
-    const statuses = [
-      {
-        id: 1,
-        name: 'terminovo'
-      },
-      {
-        id: 2,
-        name: 'shykaje peretrymku'
-      },
-      {
-        id: 3,
-        name: 'shukaje dim'
-      }
-    ];
-
-    const genders = [
-      {
-        id: 1,
-        name: 'male'
-      },
-      {
-        id: 2,
-        name: 'female'
-      }
-    ];
-
-    const sizes = [
-      {
-        id: 1,
-        name: 'small'
-      },
-      {
-        id: 2,
-        name: 'medium'
-      },
-      {
-        id: 3,
-        name: 'big'
-      }
-    ];
-    const regions = [
-      {
-        id: 1,
-        name: 'syhivskyj'
-      },
-      {
-        id: 2,
-        name: 'shevchenkivskyj'
-      }
-    ];
-
-    return {
-      statuses,
-      genders,
-      sizes,
-      regions
-    };
   }
 }
 

@@ -4,7 +4,6 @@ function dropZoneDirective() {
     'ngInject';
 
     return function (scope, element, attrs) {
-        debugger;
         element.dropzone({
             url                 : "/upload",
             maxFilesize         : 1000,
@@ -14,19 +13,6 @@ function dropZoneDirective() {
             _fileRefs           : [],
             init                : function () {
                 var me = this;
-
-                // if (mockFiles.length) {
-                //     mockFiles.map(function (mockfile) {
-                //         var pathToFile = '';
-
-                //         me.options.addedfile.call(me, mockfile);
-
-                //         if (mockfile.type.indexOf('image') > -1) {
-                //             pathToFile = PATH_TO_FILES.instances.thumb + '/h100/' + mockfile.fileName;
-                //             me.options.thumbnail.call(me, mockfile, pathToFile);
-                //         }
-                //     });
-                // }
 
                 this.on('success', function (file, json) {
                     const resultFileInfo = {
@@ -76,29 +62,29 @@ function dropZoneDirective() {
                 });
             },
             removedfile         : function (file) {
-                var ws         = ttdWebSocketFactory.getWebSocket(),
-                    ref        = file.previewElement,
-                    fileRemove = {
-                        fileName: file.fileName
-                    };
+                // var ws         = ttdWebSocketFactory.getWebSocket(),
+                //     ref        = file.previewElement,
+                //     fileRemove = {
+                //         fileName: file.fileName
+                //     };
 
-                if (isEditMode && file.isAlreadyUploaded) {
-                    fileRemove.isEditMode = true;
-                    fileRemove.id = file.id;
-                }
+                // if (isEditMode && file.isAlreadyUploaded) {
+                //     fileRemove.isEditMode = true;
+                //     fileRemove.id = file.id;
+                // }
 
-                scopeFiles = scope.$eval(attrs.files);
-                scopeFiles && scope.$apply(function () {
-                    scopeFiles.map(function (scopeFile, index) {
-                        if (scopeFile.id === file.id) {
-                            scopeFiles.splice(index, 1);
-                        }
-                    });
-                });
+                // scopeFiles = scope.$eval(attrs.files);
+                // scopeFiles && scope.$apply(function () {
+                //     scopeFiles.map(function (scopeFile, index) {
+                //         if (scopeFile.id === file.id) {
+                //             scopeFiles.splice(index, 1);
+                //         }
+                //     });
+                // });
 
-                ws.send('instanceFile remove', fileRemove);
+                // ws.send('instanceFile remove', fileRemove);
 
-                return ref != null ? ref.parentNode.removeChild(file.previewElement) : void 0;
+                // return ref != null ? ref.parentNode.removeChild(file.previewElement) : void 0;
             }
         });
     }
