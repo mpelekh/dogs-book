@@ -24,11 +24,12 @@ class DogPostController {
     //getSpecificModelData(STATUSES_URL).then(statuses => self.statuses = statuses);
     //getSpecificModelData(SIZES_URL).then(sizes => self.sizes = sizes);
 
-    const { statuses, genders, sizes } = self.getMockData();
+    const { statuses, genders, sizes, regions } = self.getMockData();
 
     self.statuses = statuses;
     self.genders = genders;
     self.sizes = sizes;
+    self.regions = regions;
   }
 
   postDog(dogModel) {
@@ -79,10 +80,22 @@ class DogPostController {
       }
     ];
 
+    const regions = [
+      {
+        id: 1,
+        name: 'syhivskyj'
+      },
+      {
+        id: 2,
+        name: 'shevchenkivskyj'
+      }
+    ];
+
     return {
       statuses,
       genders,
-      sizes
+      sizes,
+      regions
     };
   }
 }
