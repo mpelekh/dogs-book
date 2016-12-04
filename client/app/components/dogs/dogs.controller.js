@@ -14,27 +14,31 @@ class DogsController {
 
     self.filter = {};
 
-    //TODO: uncomment.
-    //const getSpecificModelData = self._DogsNetworkService.getSpecificModelData;
-    //const { REGIONS_URL, GENDERS_URL, STATUSES_URL, SIZES_URL } = self._DogsNetworkService;
-    //
-    //getSpecificModelData(REGIONS_URL).then(regions => self.regions = regions);
-    //getSpecificModelData(GENDERS_URL).then(genders => self.genders = genders);
-    //getSpecificModelData(STATUSES_URL).then(statuses => self.statuses = statuses);
-    //getSpecificModelData(SIZES_URL).then(sizes => self.sizes = sizes);
+    const getSpecificModelData = self._DogsNetworkService.getSpecificModelData.bind(self._DogsNetworkService);
+    const { REGIONS_URL, GENDERS_URL, STATUSES_URL, SIZES_URL } = self._DogsNetworkService;
+
+    getSpecificModelData(REGIONS_URL).then(regions => {
+      self.regions = regions.data;
+      self.filter.region = regions.data[0];
+    });
+    getSpecificModelData(GENDERS_URL).then(genders => {
+      self.genders = genders.data;
+      self.filter.gender = genders.data[0];
+    });
+    getSpecificModelData(STATUSES_URL).then(statuses => self.statuses = statuses.data);
+    getSpecificModelData(SIZES_URL).then(sizes => self.sizes = sizes.data);
 
     self.getDogs().then(dogs => {
-      //TODO: remove data
-      self.dogs = dogs.data;
+      self.dogs = dogs;
     });
 
     //TODO: Remove mock data.
-    const { statuses, genders, sizes, regions } = self.getMockData();
-
-    self.statuses = statuses;
-    self.genders = genders;
-    self.sizes = sizes;
-    self.regions = regions;
+    //const { statuses, genders, sizes, regions } = self.getMockData();
+    //
+    //self.statuses = statuses;
+    //self.genders = genders;
+    //self.sizes = sizes;
+    //self.regions = regions;
   }
 
   getDogs() {

@@ -9,12 +9,13 @@
 
       <form role="form">
         <h2>Cтатус собаки:</h2>
+
         <div class="form-group">
           <label ng-repeat="status in $ctrl.statuses"
                  class="radio primary">
             <input type="radio" data-toggle="radio" value={{status.id}} ng-model="$ctrl.filter.status"
                    data-radiocheck-toggle="radio" name="statuses">
-            {{status.name}}
+            {{status.status_title}}
           </label>
 
           <label class="radio primary">
@@ -27,9 +28,10 @@
         <h2>Район:</h2>
 
         <select ng-model="$ctrl.filter.region"
-                data-toggle="select" class="select select-inverse mrs mbm region-select">
-          <option ng-repeat="region in $ctrl.regions" value="{{region.id}}">{{region.name}}</option>
-          <option value="-1">Не знаю</option>
+                data-toggle="select" class="select select-inverse mrs mbm region-select"
+                ng-options="region.region_title for region in $ctrl.regions">
+          <!--<option ng-repeat="region in $ctrl.regions" value="{{region.id}}">{{region.region_title}}</option>-->
+          <!--<option value="-1">Не знаю</option>-->
         </select>
 
         <h2>Розмір:</h2>
@@ -39,7 +41,7 @@
                  class="radio primary">
             <input type="radio" data-toggle="radio" value="{{size.id}}" ng-model="$ctrl.filter.size"
                    data-radiocheck-toggle="radio" name="sizes">
-            {{size.name}}
+            {{size.size_title}}
           </label>
 
           <label class="radio primary">
@@ -51,9 +53,11 @@
 
         <h2>Стать:</h2>
         <select ng-model="$ctrl.filter.gender"
-                data-toggle="select" class="select select-inverse mrs mbm region-select">
-          <option ng-repeat="gender in $ctrl.genders" value="{{gender.id}}">{{gender.name}}</option>
-          <option value="-1"> Не знаю</option>
+                data-toggle="select" class="select select-inverse mrs mbm region-select"
+                ng-options="gender.gender_title for gender in $ctrl.genders">
+          <!--<option ng-repeat="gender in $ctrl.genders" value="{{gender.id}}">{{gender.gender_title}}</option>-->
+
+          <!--<option value="-1"> Не знаю</option>-->
         </select>
 
         <br/>
@@ -182,3 +186,5 @@
 
   </div>
 </div>
+
+<div>{{$ctrl.filter | json}}</div>
