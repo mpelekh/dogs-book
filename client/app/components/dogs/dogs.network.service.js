@@ -25,6 +25,12 @@ class DogsNetworkService {
     return self._$http.get(modelPath);
   }
 
+  getFilteredDogs(filter) {
+    const self = this;
+
+    return self._$http.post(self.DOGS_URL, filter);
+  }
+
 }
 
 export default DogsNetworkService;
