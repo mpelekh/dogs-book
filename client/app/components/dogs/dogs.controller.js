@@ -29,11 +29,12 @@ class DogsController {
     });
 
     //TODO: Remove mock data.
-    const { statuses, genders, sizes } = self.getMockData();
+    const { statuses, genders, sizes, regions } = self.getMockData();
 
     self.statuses = statuses;
     self.genders = genders;
     self.sizes = sizes;
+    self.regions = regions;
   }
 
   getDogs() {
@@ -42,10 +43,28 @@ class DogsController {
     return self._DogsNetworkService.getDogs();
   }
 
-  filterDogs() {
-    if(!self.dogs) return;
+  filterDogs(filter) {
+    debugger;
+    const self = this;
 
-    //TODO: implement.
+    const preparedFilter = {};
+
+    Object.keys(filter).forEach(key => {
+      if (filter[key] !== '-1') {
+        preparedFilter[key] = filter[key];
+      }
+    });
+
+    if(Object.keys(preparedFilter).length === 0) return;
+
+    self._DogsNetworkService.getFilteredDogs(preparedFilter)
+      .then(data => {
+        //TODO: Implement
+      },
+      error => {
+        //TODO: Implement
+      }
+    )
   }
 
   getMockData() {
@@ -89,11 +108,22 @@ class DogsController {
         name: 'big'
       }
     ];
+    const regions = [
+      {
+        id: 1,
+        name: 'syhivskyj'
+      },
+      {
+        id: 2,
+        name: 'shevchenkivskyj'
+      }
+    ];
 
     return {
       statuses,
       genders,
-      sizes
+      sizes,
+      regions
     };
   }
 }

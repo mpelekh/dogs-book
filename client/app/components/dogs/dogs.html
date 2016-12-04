@@ -12,59 +12,92 @@
       <form role="form">
         <div class="form-group">
           <!--<label class="radio primary">-->
-            <!--<input type="radio" data-toggle="radio" name="optionsRadios" id="optionsRadios1c" value="option1"-->
-                   <!--data-radiocheck-toggle="radio">-->
-            <!--Терміново потребує допомоги-->
+          <!--<input type="radio" data-toggle="radio" name="optionsRadios" id="optionsRadios1c" value="option1"-->
+          <!--data-radiocheck-toggle="radio">-->
+          <!--Терміново потребує допомоги-->
           <!--</label>-->
           <!--<label class="radio primary">-->
-            <!--<input type="radio" data-toggle="radio" name="optionsRadios" id="optionsRadios2c" value="option2"-->
-                   <!--data-radiocheck-toggle="radio" checked="">-->
-            <!--Шукає перетримку-->
+          <!--<input type="radio" data-toggle="radio" name="optionsRadios" id="optionsRadios2c" value="option2"-->
+          <!--data-radiocheck-toggle="radio" checked="">-->
+          <!--Шукає перетримку-->
           <!--</label>-->
           <!--<label class="radio primary">-->
-            <!--<input type="radio" data-toggle="radio" name="optionsRadios" id="optionsRadios2c" value="option2"-->
-                   <!--data-radiocheck-toggle="radio" checked="">-->
-            <!--Шукає господаря-->
+          <!--<input type="radio" data-toggle="radio" name="optionsRadios" id="optionsRadios2c" value="option2"-->
+          <!--data-radiocheck-toggle="radio" checked="">-->
+          <!--Шукає господаря-->
           <!--</label>-->
           <label ng-repeat="status in $ctrl.statuses"
-            class="radio primary">
+                 class="radio primary">
             <input type="radio" data-toggle="radio" value={{status.id}} ng-model="$ctrl.filter.status"
-                   data-radiocheck-toggle="radio">
+                   data-radiocheck-toggle="radio" name="statuses">
             {{status.name}}
           </label>
+
+          <label class="radio primary">
+            <input type="radio" data-toggle="radio" value="-1" ng-model="$ctrl.filter.status"
+                   data-radiocheck-toggle="radio" name="statuses">
+            Не знаю
+          </label>
         </div>
+
         <h2>Район:</h2>
-        <select data-toggle="select" class="select select-inverse mrs mbm region-select">
-          <option value="0">Сихівський</option>
-          <option value="1">Личаківський</option>
-          <option value="2">Франківський</option>
-          <option value="3">My Settings</option>
-          <option value="4">Logout</option>
+        <!--<select data-toggle="select" class="select select-inverse mrs mbm region-select">-->
+        <!--<option value="0">Сихівський</option>-->
+        <!--<option value="1">Личаківський</option>-->
+        <!--<option value="2">Франківський</option>-->
+        <!--<option value="3">My Settings</option>-->
+        <!--<option value="4">Logout</option>-->
+        <!--</select>-->
+        <select ng-model="$ctrl.filter.region"
+                data-toggle="select" class="select select-inverse mrs mbm region-select">
+          <option ng-repeat="region in $ctrl.regions" value="{{region.id}}">{{region.name}}</option>
+          <option value="-1">Не знаю</option>
         </select>
 
         <h2>Розмір:</h2>
 
         <div class="form-group sizes">
-          <label class="radio primary">
-            <input type="radio" data-toggle="radio" name="optionsRadios1" id="optionsRadios1c" value="option1"
-                   data-radiocheck-toggle="radio">
-            Маленька
+          <!--<label class="radio primary">-->
+          <!--<input type="radio" data-toggle="radio" name="optionsRadios1" id="optionsRadios1c" value="option1"-->
+          <!--data-radiocheck-toggle="radio">-->
+          <!--Маленька-->
+          <!--</label>-->
+          <!--<label class="radio primary">-->
+          <!--<input type="radio" data-toggle="radio" name="optionsRadios1" id="optionsRadios2c" value="option2"-->
+          <!--data-radiocheck-toggle="radio" checked="">-->
+          <!--Середня-->
+          <!--</label>-->
+          <!--<label class="radio primary">-->
+          <!--<input type="radio" data-toggle="radio" name="optionsRadios1" id="optionsRadios2c" value="option2"-->
+          <!--data-radiocheck-toggle="radio" checked="">-->
+          <!--Велика-->
+          <!--</label>-->
+          <label ng-repeat="size in $ctrl.sizes"
+                 class="radio primary">
+            <input type="radio" data-toggle="radio" value="{{size.id}}" ng-model="$ctrl.filter.size"
+                   data-radiocheck-toggle="radio" name="sizes">
+            {{size.name}}
           </label>
+
           <label class="radio primary">
-            <input type="radio" data-toggle="radio" name="optionsRadios1" id="optionsRadios2c" value="option2"
-                   data-radiocheck-toggle="radio" checked="">
-            Середня
-          </label>
-          <label class="radio primary">
-            <input type="radio" data-toggle="radio" name="optionsRadios1" id="optionsRadios2c" value="option2"
-                   data-radiocheck-toggle="radio" checked="">
-            Велика
+            <input type="radio" data-toggle="radio" value="-1" ng-model="$ctrl.filter.size"
+                   data-radiocheck-toggle="radio" name="sizes">
+            Не знаю
           </label>
         </div>
-        <select data-toggle="select" class="select select-inverse mrs mbm region-select">
-          <option value="0">Чоловіча</option>
-          <option value="1">Жіноча</option>
+        <!--<select data-toggle="select" class="select select-inverse mrs mbm region-select">-->
+        <!--<option value="0">Чоловіча</option>-->
+        <!--<option value="1">Жіноча</option>-->
+        <!--</select>-->
+        <h2>Стать:</h2>
+        <select ng-model="$ctrl.filter.gender"
+                data-toggle="select" class="select select-inverse mrs mbm region-select">
+          <option ng-repeat="gender in $ctrl.genders" value="{{gender.id}}">{{gender.name}}</option>
+          <option value="-1"> Не знаю</option>
         </select>
+
+        <br/>
+        <button ng-click="$ctrl.filterDogs($ctrl.filter)" type="button" class="btn btn-success">Застосувати</button>
       </form>
     </div>
   </div>
