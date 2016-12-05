@@ -1,88 +1,112 @@
 <div class="row">
-  <div class="col-md-3 left-bar">
-    <div class="pull-right">
+	<div class="col-md-3 left-bar">
+		<div class="pull-right">
 
-      <form role="form">
-        <h2>Cтатус собаки:</h2>
+			<form role="form">
+				<h2>Cтатус собаки:</h2>
 
-        <div class="form-group">
-          <label ng-repeat="status in $ctrl.statuses"
-                 class="radio primary">
+				<div class="form-group">
+					<label ng-repeat="status in $ctrl.statuses" class="radio primary">
             <input type="radio" data-toggle="radio" value={{status.id}} ng-model="$ctrl.filter.status"
                    data-radiocheck-toggle="radio" name="statuses">
             {{status.status_title}}
           </label>
 
-          <label class="radio primary">
+					<label class="radio primary">
             <input type="radio" data-toggle="radio" value="-1" ng-model="$ctrl.filter.status"
                    data-radiocheck-toggle="radio" name="statuses">
             Не знаю
           </label>
-        </div>
+				</div>
 
-        <h2>Район:</h2>
+				<h2>Район:</h2>
 
-        <select ng-model="$ctrl.filter.region"
-                data-toggle="select" class="select select-inverse mrs mbm region-select"
-                ng-options="region.region_title for region in $ctrl.regions">
+				<select ng-model="$ctrl.filter.region" data-toggle="select" class="select select-inverse mrs mbm region-select" ng-options="region.region_title for region in $ctrl.regions">
         </select>
 
-        <h2>Розмір:</h2>
+				<h2>Розмір:</h2>
 
-        <div class="form-group sizes">
-          <label ng-repeat="size in $ctrl.sizes"
-                 class="radio primary">
+				<div class="form-group sizes">
+					<label ng-repeat="size in $ctrl.sizes" class="radio primary">
             <input type="radio" data-toggle="radio" value="{{size.id}}" ng-model="$ctrl.filter.size"
                    data-radiocheck-toggle="radio" name="sizes">
             {{size.size_title}}
           </label>
 
-          <label class="radio primary">
+					<label class="radio primary">
             <input type="radio" data-toggle="radio" value="-1" ng-model="$ctrl.filter.size"
                    data-radiocheck-toggle="radio" name="sizes">
             Не знаю
           </label>
-        </div>
+				</div>
 
-        <h2>Стать:</h2>
-        <select ng-model="$ctrl.filter.gender"
-                data-toggle="select" class="select select-inverse mrs mbm region-select"
-                ng-options="gender.gender_title for gender in $ctrl.genders">
+				<h2>Стать:</h2>
+				<select ng-model="$ctrl.filter.gender" data-toggle="select" class="select select-inverse mrs mbm region-select" ng-options="gender.gender_title for gender in $ctrl.genders">
         </select>
 
-        <br/>
-        <button ng-click="$ctrl.filterDogs($ctrl.filter)" type="button" class="btn btn-success">Застосувати</button>
-      </form>
-    </div>
-  </div>
-  
-  <div class="col-md-9 main-contenter">
-  
-    <div class="row darkgray">
-      <a type="button" class="btn btn-danger add-dog" ui-sref="dog-post">Додати собаку</a>
-    </div>
-    
-    <div class="row dog" ng-repeat="dog in $ctrl.dogs" style="width:100%;margin:0;padding:15px;background-color:transparent;box-sizing: border-box;">
-      <div style = "width: 100%; background-color:#EFF0F2; height:250px";>
-      <div class="photo" style="background-image:url(/public/img/dog.jpg)">
-      </div>
-      <div class="info">
-        <h2>{{dog.aditional_info}}</h2>
+				<br/>
+				<button ng-click="$ctrl.filterDogs($ctrl.filter)" type="button" class="btn btn-success">Застосувати</button>
+			</form>
+		</div>
+	</div>
 
-        <div class="info-group">
-          <span><img src="/public/img/clocks.svg" alt=""/>{{$ctrl.getItemById(dog.status, 'statuses').status_title}}</span>
-          <span><img src="/public/img/male3-512.png" alt=""/>{{$ctrl.getItemById(dog.gender, 'genders').gender_title}}</span>
-          <span><img src="/public/img/loop.svg" alt=""/>{{dog.age}} роки(-ів)</span>
-          <span><a type="button" class="btn btn-success" ng-click="$ctrl.redirectToDetails(dog.id)">Детальніше</a></span>
-        </div>
-        <p style="display:inline-block;">
-          {{dog.aditional_info}}
-        </p>
-      </div>
-      </div>
-    </div>
+	<div class="col-md-9">
 
-  </div>
+		<div class="row darkgray">
+			<a type="button" class="btn btn-danger add-dog" ui-sref="dog-post">Додати собаку</a>
+		</div>
+
+		<!--<div class="row dog" ng-repeat="dog in $ctrl.dogs" style="width:100%;margin:0;padding:15px;background-color:transparent;box-sizing: border-box;">
+			<div style="width: 100%; background-color:#EFF0F2; height:250px" ;>
+				<div class="photo" style="background-image:url(/public/img/dog.jpg)">
+				</div>
+				<div class="info">
+					<h2>{{$ctrl.getAdditionalInfoForHeader(dog.aditional_info)}}</h2>
+
+					<div class="info-group">
+						<span><img src="/public/img/clocks.svg" alt=""/>{{$ctrl.getItemById(dog.status, 'statuses').status_title}}</span>
+						<span><img src="/public/img/male3-512.png" alt=""/>{{$ctrl.getItemById(dog.gender, 'genders').gender_title}}</span>
+						<span><img src="/public/img/loop.svg" alt=""/>{{dog.age}} роки(-ів)</span>
+						<span><a type="button" class="btn btn-success" ng-click="$ctrl.redirectToDetails(dog.id)">Детальніше</a></span>
+					</div>
+					<p style="display:inline-block;">
+						{{dog.aditional_info}}
+					</p>
+				</div>
+			</div>
+		</div>-->
+
+		<div class="row" ng-repeat="dog in $ctrl.dogs">
+			<div class="col-md-3">
+				<a href="#">
+					<img class="img-responsive" src="/public/img/dog.jpg" alt="">
+				</a>
+			</div>
+			<div class="col-md-9">
+				<div class="row">
+					<div class="col-md-12">
+						<h5>{{$ctrl.getAdditionalInfoForHeader(dog.aditional_info)}}</h5>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="info-group">
+							<span><img src="/public/img/clocks.svg" alt=""/>{{$ctrl.getItemById(dog.status, 'statuses').status_title}}</span>
+							<span><img src="/public/img/male3-512.png" alt=""/>{{$ctrl.getItemById(dog.gender, 'genders').gender_title}}</span>
+							<span><img src="/public/img/loop.svg" alt=""/>{{dog.age}} роки(-ів)</span>
+							<span><a type="button" class="btn btn-success" ng-click="$ctrl.redirectToDetails(dog.id)">Детальніше</a></span>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<p style="display:inline-block;">
+							{{dog.aditional_info}}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
 </div>
 
 <!--<div>{{$ctrl.filter | json}}</div>-->
