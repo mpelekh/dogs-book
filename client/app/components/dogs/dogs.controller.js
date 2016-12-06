@@ -6,17 +6,12 @@ class DogsController {
 
     self._$q = $q;
     self._$state = $state;
-
     self._DogsNetworkService = DogsNetworkService;
-
     this.name = 'dogs';
   }
 
   $onInit() {
     const self = this;
-
-    self.filter = {};
-
     const getSpecificModelData = self._DogsNetworkService.getSpecificModelData.bind(self._DogsNetworkService);
     const { REGIONS_URL, GENDERS_URL, STATUSES_URL, SIZES_URL } = self._DogsNetworkService;
 
@@ -30,32 +25,25 @@ class DogsController {
       .then(data => {
         [self.regions, self.genders, self.statuses, self.sizes] = data;
 
-        self.filter.region = self.regions[0];
-        self.filter.gender = self.genders[0];
-        self.filter.statuses = self.statuses[0];
-        self.filter.sizes = self.sizes[0];
+        self.filter = {
+          region: self.regions[0],
+          gender: self.genders[0],
+          statuses: self.statuses[0],
+          sizes: self.sizes[0]
+        };
 
-      })
-      .then(result => {
-        setTimeout(() => {
-          if ($('[data-toggle="select"]').length) {
-            $('[data-toggle="select"]').select2();
-          }
-          // Checkboxes and Radio buttons
-          $('[data-toggle="checkbox"]').radiocheck();
-          $('[data-toggle="radio"]').radiocheck();
-        }, 0);
       });
 
-    self.getDogs().then(dogs => {
-      console.log('dogs', dogs);
-      self.dogs = dogs.data;
-    });
+    self.getDogs()
+      .then(dogs => self.dogs = dogs.data)
+      .then(() => {
+        console.log(self);
+        debugger;
+      })
   }
 
   getDogs() {
     const self = this;
-
     return self._DogsNetworkService.getDogs();
   }
 

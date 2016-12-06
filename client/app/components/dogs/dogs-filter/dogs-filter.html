@@ -1,0 +1,53 @@
+<div class="col-md-3 left-bar">
+		<div class="pull-right">
+
+			<form role="form">
+
+				<h2>Cтатус собаки:</h2>
+				<div class="form-group">
+					<label ng-repeat="status in $ctrl.statuses" class="radio primary">
+            			<input type="radio" data-toggle="radio" value={{status.id}} ng-model="$ctrl.filter.status"
+                   			   data-radiocheck-toggle="radio" name="statuses">
+						{{status.status_title}}
+          			</label>
+
+					<label class="radio primary">
+            			<input type="radio" data-toggle="radio" value="-1" ng-model="$ctrl.filter.status"
+                   			   data-radiocheck-toggle="radio" name="statuses">
+						Не знаю
+          			</label>
+				</div>
+
+				<h2>Район:</h2>
+				<select ng-model="$ctrl.filter.region" 
+						data-toggle="select" 
+						class="select select-inverse mrs mbm region-select" 
+						ng-options="region.region_title for region in $ctrl.regions">
+        		</select>
+
+				<h2>Розмір:</h2>
+				<div class="form-group sizes">
+					<label ng-repeat="size in $ctrl.sizes" class="radio primary">
+						<input type="radio" data-toggle="radio" value="{{size.id}}" ng-model="$ctrl.filter.size"
+                   			   data-radiocheck-toggle="radio" name="sizes">
+            			{{size.size_title}}
+          			</label>
+
+					<label class="radio primary">
+						<input type="radio" data-toggle="radio" value="-1" ng-model="$ctrl.filter.size"
+							   data-radiocheck-toggle="radio" name="sizes">
+						Не знаю
+					</label>
+				</div>
+
+				<h2>Стать:</h2>
+				<select ng-model="$ctrl.filter.gender" 
+						data-toggle="select" 
+						class="select select-inverse mrs mbm region-select" 
+						ng-options="gender.gender_title for gender in $ctrl.genders">
+        		</select>
+
+				<button ng-click="$ctrl.applyFilter({$event: $ctrl.filter})" type="button" class="btn btn-success">Застосувати</button>
+			</form>
+		</div>
+	</div>

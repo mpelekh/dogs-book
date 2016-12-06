@@ -1,10 +1,12 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import DogsFilter from './dogs-filter/dogs-filter';
 import dogsComponent from './dogs.component';
 import dogsNetworkService from './dogs.network.service'
 
 let dogsModule = angular.module('dogs', [
-  uiRouter
+  uiRouter,
+  DogsFilter
 ])
   .config(($stateProvider, $urlRouterProvider) => {
     "ngInject";
