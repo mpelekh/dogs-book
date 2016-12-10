@@ -1,13 +1,16 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import ocLazyLoad from 'oclazyload';
 import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
 import DropZoneDirective from './app.dropzone.directive';
-// import 'normalize.css';
+import ADirective from './a.directive';
+import 'normalize.css';
 
 angular.module('app', [
   uiRouter,
+  ocLazyLoad,
   Common,
   Components
 ])
@@ -23,5 +26,6 @@ angular.module('app', [
   //TODO: write correct API address.
   .constant('API_URL', 'http://urswego.pythonanywhere.com/api')
   .directive('dropZone', DropZoneDirective)
+  .directive('a', ADirective)
 
   .component('app', AppComponent);

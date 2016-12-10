@@ -4,55 +4,57 @@ function dropZoneDirective() {
     'ngInject';
 
     return function (scope, element, attrs) {
+        const {url} = attrs;
+
         element.dropzone({
-            url                 : "/upload",
-            maxFilesize         : 1000,
-            paramName           : "uploadfile",
+            url,
+            maxFilesize: 1000,
+            paramName: "uploadfile",
             maxThumbnailFilesize: 5,
-            addRemoveLinks      : true,
-            _fileRefs           : [],
-            init                : function () {
+            // addRemoveLinks: true,
+            // _fileRefs: [],
+            init: function () {
                 var me = this;
 
                 this.on('success', function (file, json) {
-                    const resultFileInfo = {
-                        fileName    : json.fileName,
-                        userFileName: json.userFileName,
-                        type        : file.type || 'unknown',
-                        size        : file.size
-                    };
+                    // const resultFileInfo = {
+                    //     fileName: json.fileName,
+                    //     userFileName: json.userFileName,
+                    //     type: file.type || 'unknown',
+                    //     size: file.size
+                    // };
 
-                    if (json.success) {
-                        file.fileName = json.fileName;
-                        scopeFiles = scope.$eval(attrs.files);
-                        scopeFiles && scope.$apply(function () {
-                            scopeFiles.push(resultFileInfo);
-                        });
-                    }
+                    // if (json.success) {
+                    //     file.fileName = json.fileName;
+                    //     scopeFiles = scope.$eval(attrs.files);
+                    //     scopeFiles && scope.$apply(function () {
+                    //         scopeFiles.push(resultFileInfo);
+                    //     });
+                    // }
 
-                    cbOnSuccessUpload && cbOnSuccessUpload(resultFileInfo, () => {
-                        if (onlyForOneFile) {
-                            file.previewElement.parentNode.removeChild(file.previewElement);
-                            me.emit('reset');
-                        } else {
-                            _fileRefs.push(file.previewElement);
+                    // cbOnSuccessUpload && cbOnSuccessUpload(resultFileInfo, () => {
+                    //     if (onlyForOneFile) {
+                    //         file.previewElement.parentNode.removeChild(file.previewElement);
+                    //         me.emit('reset');
+                    //     } else {
+                    //         _fileRefs.push(file.previewElement);
 
-                            return () => {
-                                _fileRefs.forEach(ref => {
-                                    try {
-                                        ref.parentNode.removeChild(ref);
-                                    } catch (error) {
-                                        //do nothing
-                                    }
-                                });
+                    //         return () => {
+                    //             _fileRefs.forEach(ref => {
+                    //                 try {
+                    //                     ref.parentNode.removeChild(ref);
+                    //                 } catch (error) {
+                    //                     //do nothing
+                    //                 }
+                    //             });
 
-                                _fileRefs.length = 0;
-                                scopeFiles = scope.$eval(attrs.files);
+                    //             _fileRefs.length = 0;
+                    //             scopeFiles = scope.$eval(attrs.files);
 
-                                me.emit('reset');
-                            }
-                        }
-                    });
+                    //             me.emit('reset');
+                    //         }
+                    //     }
+                    // });
                 });
                 this.on('addedfile', function (file) {
                     // TODO:
@@ -61,7 +63,7 @@ function dropZoneDirective() {
                     // TODO:
                 });
             },
-            removedfile         : function (file) {
+            removedfile: function (file) {
                 // var ws         = ttdWebSocketFactory.getWebSocket(),
                 //     ref        = file.previewElement,
                 //     fileRemove = {
