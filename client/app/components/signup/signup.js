@@ -6,7 +6,7 @@ let signupModule = angular.module('signup', [
   uiRouter
 ])
 
-  .config(($stateProvider, $urlRouterProvider) => {
+.config(($stateProvider, $urlRouterProvider) => {
     "ngInject";
 
     $stateProvider
@@ -16,8 +16,8 @@ let signupModule = angular.module('signup', [
       });
   })
 
-  .component('signup', signupComponent)
+.component('signup', signupComponent)
 
-  .name;
+.name;
 
 export default signupModule;
