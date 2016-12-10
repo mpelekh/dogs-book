@@ -44,8 +44,6 @@ class DogPostController {
     //TODO: mock data.
     dogModel.volounteer_id = 1;
 
-    debugger;
-
     return self._DogPostNetworkService.postDog(dogModel);
   }
 }

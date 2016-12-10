@@ -36,10 +36,7 @@ class UsersController {
       self.filter.status = statuses.data[0]
       return statuses.data
     })
-    ]).then(data => {
-        self.filter.region = data[0][0];
-        self.filter.statuses = data[1][0];
-      }).then(result => {
+    ]).then(result => {
         setTimeout(() => {
           if ($('[data-toggle="select"]').length) {
             $('[data-toggle="select"]').select2();

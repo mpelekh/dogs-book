@@ -21,11 +21,11 @@
 
         <h2>Район:</h2>
 
-        <select ng-model="$ctrl.filter.region"
-                data-toggle="select" class="select select-inverse mrs mbm region-select">
-          <option ng-repeat="region in $ctrl.regions" value="{{region.id}}">{{region.region_title}}</option>
-          <option value="-1">Всі</option>
-        </select>
+        <select ng-model="$ctrl.filter.region" 
+						data-toggle="select" 
+						class="select select-inverse mrs mbm region-select" 
+						ng-options="region.region_title for region in $ctrl.regions">
+          </select>
 
         <br/>
         <button ng-click="$ctrl.filterDogs($ctrl.filter)" type="button" class="btn btn-success">Застосувати</button>

@@ -1,5 +1,7 @@
+const cache = {};
+
 class UsersNetworkService {
-  constructor($http, API_URL) {
+  constructor($http, $q, API_URL) {
     'ngInject';
 
     const self = this;
@@ -9,6 +11,7 @@ class UsersNetworkService {
     self.GENDERS_URL = `${API_URL}/genders`;
     self.STATUSES_URL = `${API_URL}/users/statuses`;
     self._$http = $http;
+    self._$q = $q;
   }
 
   getUsers() {
@@ -19,7 +22,13 @@ class UsersNetworkService {
   getSpecificModelData(modelPath) {
     const self = this;
 
-    return self._$http.get(modelPath);
+    if(cache[modelPath]) {
+      return self._$q.resolve(cache[modelPath]);
+    }
+
+    return self._$http
+      .get(modelPath)
+      .then(result => cache[modelPath] = result);
   }
 }
 

@@ -1,5 +1,7 @@
+const cache = {};
+
 class DogsNetworkService {
-  constructor($http, API_URL) {
+  constructor($http, $q, API_URL) {
     'ngInject';
 
     const self = this;
@@ -11,6 +13,7 @@ class DogsNetworkService {
     self.SIZES_URL = `${API_URL}/sizes`;
 
     self._$http = $http;
+    self._$q = $q;
   }
 
   getDogs() {
@@ -22,7 +25,13 @@ class DogsNetworkService {
   getSpecificModelData(modelPath) {
     const self = this;
 
-    return self._$http.get(modelPath);
+    if(cache[modelPath]) {
+      return self._$q.resolve(cache[modelPath]);
+    }
+
+    return self._$http
+      .get(modelPath)
+      .then(result => cache[modelPath] = result);
   }
 
   getFilteredDogs(filter) {
