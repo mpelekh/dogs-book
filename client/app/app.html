@@ -1,15 +1,19 @@
 <!-- Place all UI elements intended to be present across all routes in this file -->
-<navbar></navbar>
-<div class="container">
-	<div ui-view></div>
-	<div id="blueimp-gallery" class="blueimp-gallery" style="display: none">
-		<div class="slides"></div>
-		<h3 class="title"></h3>
-		<a class="prev">‹</a>
-		<a class="next">›</a>
-		<a class="close">×</a>
-		<a class="play-pause"></a>
-		<ol class="indicator"></ol>
+<div class="wrap">
+	<navbar></navbar>
+	<div class="container">
+		<div ui-view></div>
 	</div>
+	<div class="push"></div>
 </div>
 <footer></footer>
+
+<div id="blueimp-gallery" class="blueimp-gallery" style="display: none">
+	<div class="slides"></div>
+	<h3 class="title"></h3>
+	<a class="prev">‹</a>
+	<a class="next">›</a>
+	<a class="close">×</a>
+	<a class="play-pause"></a>
+	<ol class="indicator"></ol>
+</div>

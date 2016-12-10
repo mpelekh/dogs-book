@@ -6,6 +6,7 @@ import Components from './components/components';
 import AppComponent from './app.component';
 import DropZoneDirective from './app.dropzone.directive';
 import ADirective from './a.directive';
+import SharedService from './app.shared.service';
 import 'normalize.css';
 
 angular.module('app', [
@@ -23,9 +24,10 @@ angular.module('app', [
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
   })
-  //TODO: write correct API address.
+
   .constant('API_URL', 'http://urswego.pythonanywhere.com/api')
   .directive('dropZone', DropZoneDirective)
   .directive('a', ADirective)
+  .service('SharedService', SharedService)
 
   .component('app', AppComponent);

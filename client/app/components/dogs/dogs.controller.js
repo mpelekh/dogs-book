@@ -35,11 +35,7 @@ class DogsController {
       });
 
     self.getDogs()
-      .then(dogs => self.dogs = dogs.data)
-      .then(() => {
-        console.log(self);
-        debugger;
-      })
+      .then(dogs => self.dogs = dogs.data);
   }
 
   getDogs() {
